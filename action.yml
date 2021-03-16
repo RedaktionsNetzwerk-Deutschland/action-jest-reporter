@@ -1,0 +1,21 @@
+name: "JEST Report"
+description: "Creates Coverage & Annotation Checks for you CI based on Jest's JSON"
+branding:
+  icon: "check"
+  color: "green"
+inputs:
+  GITHUB_TOKEN:
+    description: "The GitHub Token. This is only used, if none is provided via Env."
+    required: false
+  json-glob:
+    description: "Glob for matching the Jest Output files"
+    required: false
+    default: "**/jest-output.json"
+  workdir:
+    description: "Specify a custom workdirectory if needed. By default env.GITHUB_WORKSPACE is used."
+    required: false
+
+
+runs:
+  using: "node12"
+  main: "dist/index.js"
